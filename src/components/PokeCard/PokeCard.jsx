@@ -12,9 +12,9 @@ export default function PokeCard({ name, image }) {
             <CardMedia
                 sx={{ height: 200 }}
                 image={image}
-                title="green iguana"
+                title="pokemon image"
             />
-            <CardContent>
+            <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Typography style={{ fontWeight: 'bold', fontSize: 24 }}>
                     {name}
                 </Typography>
