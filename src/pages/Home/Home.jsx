@@ -1,59 +1,67 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Grid, Container } from "@mui/material";
-import PokeCard from "../../components/PokeCard/PokeCard";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Home.css";
 
 export const Home = () => {
 
-    const [pokemons, setPokemons] = useState([]);
+    const [pokemonName, setPokemonName] = useState("");
+    const [pokemonChosen, setPokemonChosen] = useState(false);
 
-    useEffect(() => {
-        getPokemons();
-    }, []);
+    const [pokemon, setPokemon] = useState({
+        name: "", 
+        img: "",
+        type: "",
+        hp: "",
+        attack: "",
+        defense: "",
+    });
 
-    const getPokemons = () => {
-        let endpoints = []
-        for(let i = 1; i <= 20; i++) {
-            endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
-        }
-
-        axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemons(res));
-
-        // axios.get("https://pokeapi.co/api/v2/pokemon?limit=20")
-        // .then((res) => setPokemons(res.data.results))
-        // .catch((err) => console.log(err))
+    const handlePokemonFromNavbar = search => {
+        setPokemonName(search);
     };
 
-    const pokemonFilter = (name) => {
-        let filteredPokemons = []
-
-        if(name === "") {
-            getPokemons();
-        }
-        
-        for(let i in pokemons) {
-            if(pokemons[i].data.name.includes(name)) {
-                filteredPokemons.push(pokemons[i]);
-            }
-        }
-        setPokemons(filteredPokemons);
-    }
+    const getPokemon = () => {
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response) => {
+            setPokemon({ 
+                name: pokemonName[0].toUpperCase() + pokemonName.substring(1), 
+                img: response.data.sprites.front_default, 
+                type: response.data.types[0].type.name,
+                hp: response.data.stats[0].base_stat,
+                attack: response.data.stats[1].base_stat,
+                defense: response.data.stats[2].base_stat,
+            });
+            setPokemonChosen(true);
+        })
+    };
 
     return(
         <>
-            <Navbar pokemonFilter={pokemonFilter}/>
+            <Navbar 
+                updateName={handlePokemonFromNavbar}
+                getPokemons={getPokemon}    
+            />
             <Container maxWidth="false">
-                <Grid container spacing={4}>
-                    {pokemons.map((pokemon, key) => (
-                        <Grid item xs={2} key={key}>
-                            <PokeCard 
-                                name={pokemon.data.name}
-                                image={pokemon.data.sprites.front_default}    
-                            />
-                        </Grid>
-                    ))}
+                <Grid container className='pokemon-container'>
+                    <Grid item className='pokemon-card'>
+                        {!pokemonChosen ? (
+                            <p className="title-null">Pesquise o nome de um Pokémon</p>
+                        ) : (
+                            <div className="pokemon-data">
+                                <p className="pokemon-name">{pokemon.name}</p>
+                                <div className="pokemon-table">
+                                    <img className="pokemon-img" src={pokemon.img} alt="pokemon image" />
+                                    <div className="pokemon-atributes">
+                                        <p className="pokemon-atribute">Tipo: {pokemon.type}</p>
+                                        <p className="pokemon-atribute">HP: {pokemon.hp}</p>
+                                        <p className="pokemon-atribute">Ataque: {pokemon.attack}</p>
+                                        <p className="pokemon-atribute">Defesa: {pokemon.defense}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </Grid>
                 </Grid>
             </Container>
         </>

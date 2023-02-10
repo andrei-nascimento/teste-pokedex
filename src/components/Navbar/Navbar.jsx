@@ -8,6 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Avatar from '@mui/material/Avatar';
 import PokebolaIcon from '../../assets/pokebola.png'; 
 import "./Navbar.css";
+import { Button } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -51,20 +52,33 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function Navbar({ pokemonFilter }) {
+export default function Navbar({ updateName, getPokemons }) {
+
     return (
         <Box sx={{ flexGrow: 1, marginBottom: 4 }}>
             <AppBar position="static" sx={{ backgroundColor: '#003a70' }}>
+
                 <Toolbar className='navbar-space'>
-                    <Search onChange={(e) => pokemonFilter(e.target.value)}>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase
-                            placeholder="Buscar..."
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </Search>
+                    <div className='search-space'>
+                        <Search onChange={(e) => updateName(e.target.value)}>
+                            <SearchIconWrapper>
+                                <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                                placeholder="Digite aqui..."
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </Search>
+
+                        <Button onClick={getPokemons}
+                            style={{ 
+                            backgroundColor: 'white', 
+                            color: '#003a70', 
+                            fontWeight: 'bold' }}>
+                            Buscar Pokémon
+                        </Button>
+                    </div>
+
                     <Avatar alt="Pokebola" src={PokebolaIcon} />
                 </Toolbar>
             </AppBar>

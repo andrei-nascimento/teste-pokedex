@@ -2,3 +2,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.search-space {
+    display: flex;
+    gap: 12px;
+}
