@@ -18,7 +18,11 @@ Enquanto não é feita a busca, uma pokebola é exibida para o usuário, instiga
 
 - Inclusão das Evolution Chains exibindo todas as evoluções de cada pokémon logo abaixo da sua foto e características no card.
 
-- Melhorar o design da interface e exibir mais itens na tela.
+- Inclusão da função que "Limpa" a interface após o usuário apagar o nome do pokémon. 
+
+- Melhoria no design da interface e exibição de mais itens na tela.
+
+
 
 
 
