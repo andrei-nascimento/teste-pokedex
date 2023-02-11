@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import Avatar from '@mui/material/Avatar';
 import PokemonLogo from '../../assets/pokemonLogo.png'; 
 import "./Navbar.css";
 import { Button } from '@mui/material';

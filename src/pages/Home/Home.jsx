@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Grid, Container } from "@mui/material";
+import { Grid } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
-import "./Home.css";
 import { Footer } from "../../components/Footer/Footer";
 import Pokebola from "../../assets/pokebola.png";
+import "./Home.css";
 
 export const Home = () => {
     const [pokemonName, setPokemonName] = useState("");
