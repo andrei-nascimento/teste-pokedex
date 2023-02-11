@@ -59,7 +59,7 @@ export const Home = () => {
                     <div className="pokemon-data">
                         <p className="pokemon-name">{pokemon.name}</p>
                         <div className="pokemon-table">
-                            <img className="pokemon-img" src={pokemon.img} alt="pokemon image" />
+                            <img className="pokemon-img" src={pokemon.img} alt="pokemon" />
                             <div className="pokemon-atributes">
                                 <p className="pokemon-atribute">Tipo: {pokemon.type}</p>
                                 <p className="pokemon-atribute">HP: {pokemon.hp}</p>
