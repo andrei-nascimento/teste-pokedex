@@ -1,9 +1,15 @@
 .navbar-space {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .search-space {
     display: flex;
     gap: 12px;
 }
+
+.pokemon-logo {
+    width: 100px;
+}
+

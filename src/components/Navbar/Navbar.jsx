@@ -6,7 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Avatar from '@mui/material/Avatar';
-import PokebolaIcon from '../../assets/pokebola.png'; 
+import PokemonLogo from '../../assets/pokemonLogo.png'; 
 import "./Navbar.css";
 import { Button } from '@mui/material';
 
@@ -36,17 +36,16 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
+    color: '#003a70',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
-        width: '12ch',
+        width: '20ch',
         '&:focus': {
-            width: '20ch',
+            width: '25ch',
         },
         },
     },
@@ -56,13 +55,13 @@ export default function Navbar({ updateName, getPokemons }) {
 
     return (
         <Box sx={{ flexGrow: 1, marginBottom: 4 }}>
-            <AppBar position="static" sx={{ backgroundColor: '#003a70' }}>
+            <AppBar position="static" sx={{ backgroundColor: '#fbd743' }}>
 
                 <Toolbar className='navbar-space'>
                     <div className='search-space'>
                         <Search onChange={(e) => updateName(e.target.value)}>
                             <SearchIconWrapper>
-                                <SearchIcon />
+                                <SearchIcon style={{ color: '#003a70' }}/>
                             </SearchIconWrapper>
                             <StyledInputBase
                                 placeholder="Digite aqui..."
@@ -72,14 +71,18 @@ export default function Navbar({ updateName, getPokemons }) {
 
                         <Button onClick={getPokemons}
                             style={{ 
-                            backgroundColor: 'white', 
-                            color: '#003a70', 
-                            fontWeight: 'bold' }}>
+                            backgroundColor: '#003a70', 
+                            color: 'white', 
+                            fontWeight: 'bold',
+                            paddingLeft: 20,
+                            paddingRight: 20,
+                            borderRadius: 25
+                            }}>
                             Buscar Pokémon
                         </Button>
                     </div>
 
-                    <Avatar alt="Pokebola" src={PokebolaIcon} />
+                    <img alt="Pokebmon Logo" src={PokemonLogo} className="pokemon-logo" />
                 </Toolbar>
             </AppBar>
         </Box>

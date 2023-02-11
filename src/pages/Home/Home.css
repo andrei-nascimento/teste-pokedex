@@ -1,37 +1,47 @@
 .pokemon-container {
     display: grid;
     justify-content: center;
+    padding-top: 40px;
 }
 
-.pokemon-card {
+.box-null {
+    display: grid;
+    justify-content: center;
+}
+
+.title-null {
+    font-family: Roboto;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 48px;
+}
+
+.pokebola-img {
+    width: 250px;
+    padding: 0 90px 0 90px;
+}
+
+.pokemon-data {
     display: grid;
     justify-content: center;
     background-color: #e6e9ed;
     border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.title-null {
-    font-size: 22px;
-    font-weight: bold;
-    color: #003a70;
-    padding: 0px 24px;
-}
-
-.pokemon-data {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     text-align: center;
 }
 
 .pokemon-name {
+    font-family: Roboto;
     font-size: 32px;
     font-weight: bold;
-    margin: 16px 0;
+    margin: 24px 0 24px 0;
 }
 
 .pokemon-table {
     display: flex;
     align-items: center;
-    padding: 0 54px 16px 20px;
+    padding: 0 36px 24px 24px;
     gap: 16px;
 }
 
@@ -41,6 +51,7 @@
 }
 
 .pokemon-atribute {
+    font-family: Roboto;
     font-size: 16px;
     font-weight: bold;
     margin: 8px 0;

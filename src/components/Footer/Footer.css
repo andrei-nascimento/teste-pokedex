@@ -1,0 +1,18 @@
+.footer-container {
+    position: absolute;
+    bottom: 0;
+}
+
+.footer {
+    background-color: #003a70;
+    height: 64px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto-footer {
+    color: white;
+    font-size: 16px;
+    font-weight: 500 !important
+}
