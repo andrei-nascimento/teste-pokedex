@@ -9,6 +9,11 @@
     gap: 12px;
 }
 
+.search-input {
+    border: 2px solid;
+    border-color: #003a70;
+}
+
 .pokemon-logo {
     width: 100px;
 }

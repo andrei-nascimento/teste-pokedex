@@ -36,6 +36,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: '#003a70',
+    fontWeight: 'bold',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -58,7 +59,7 @@ export default function Navbar({ updateName, getPokemons }) {
 
                 <Toolbar className='navbar-space'>
                     <div className='search-space'>
-                        <Search onChange={(e) => updateName(e.target.value)}>
+                        <Search onChange={(e) => updateName(e.target.value)} className="search-input">
                             <SearchIconWrapper>
                                 <SearchIcon style={{ color: '#003a70' }}/>
                             </SearchIconWrapper>
